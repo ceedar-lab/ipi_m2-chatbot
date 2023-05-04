@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors');
 const app = express()
 const port = 3000
 
@@ -22,13 +23,12 @@ const citieslist = cities.map(city => city.name.toLowerCase())
  * APPLICATION
  */
 
-app.get('', (req, res) => {
-  let question = req.query.question
-  res.send('Hello d!' + question)
-})
+app.use(cors());
+app.use(express.json());
 
-app.get('/api', (req, res) => {
-  res.send('api')
+app.post('', (req, res) => {
+  let message = req.body.message
+  res.send('J\'ai bien recu la question : ' + message)
 })
 
 app.listen(port, () => {
