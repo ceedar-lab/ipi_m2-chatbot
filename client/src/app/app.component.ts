@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
 
   private processText(text: string): string {
     text = this.checkHourPattern(text);
-    text = text.replace(/(quel|moi)+/i, '');
+    text = text.replace(/(quel|moi)+/i, ''); // Sinon il cherche les villes Quel et Moi
     return text;
   }
 
