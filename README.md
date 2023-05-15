@@ -1,6 +1,10 @@
 # Chatbot NodeJS
 
-## <br />Client Angular
+Angular version : 13.1.4
+
+Node version : 18.16
+
+## Client Angular
 
 - Se placer dans le répertoire **chatbot/server**.
 - Si première installation, lancer la commande `npm i` pour télécharger les dépendances. 
