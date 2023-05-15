@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { HttpRequestService } from './services/http-request.service';
 import { Message } from './models/message.model';
 
@@ -8,8 +8,11 @@ import { Message } from './models/message.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  @ViewChild('text') text!: ElementRef;
+
   title = 'client';
 
+  lastQuestion: string = '';
   response: string = '';
 
   constructor(
@@ -18,11 +21,14 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  send(text: string) {
-    this.http.send(new Object({ message: this.processText(text) }) as Message).subscribe({
+  @HostListener('document:keydown.enter')
+  send() {
+    this.lastQuestion = this.text.nativeElement.value;
+    this.http.send(new Object({ message: this.processText(this.text.nativeElement.value) }) as Message).subscribe({
       next: (res) => this.response = res,
       error: (err) => this.response = err
     })
+    this.text.nativeElement.value = '';
   }
 
   private processText(text: string): string {

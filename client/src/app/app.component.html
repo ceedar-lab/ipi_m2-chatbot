@@ -1,4 +1,16 @@
-<textarea #text name="text" id="text" cols="30" rows="10" placeholder="Que veux-tu"></textarea>
-<button (click)="send(text.value)">Envoyer</button>
-
-<div>{{ response }}</div>
+<main>
+  <h1>ChatBot</h1>
+  <div>
+    <label for="message">Message :</label>
+		<input #text type="text" id="message" placeholder="Quelle est la question ?" required autocomplete="off">
+		<button type="button" (click)="send()">Envoyer</button>
+  </div>
+  <section class="t50" *ngIf="lastQuestion">
+    <h2>Question envoyée au ChatBot</h2>
+    <p>{{ lastQuestion }}</p>
+  </section>
+  <section *ngIf="response">
+    <h2>Réponse du ChatBot</h2>
+    <p>{{ response }}</p>
+  </section>
+</main>
