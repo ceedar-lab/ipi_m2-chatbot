@@ -42,9 +42,7 @@ nlp.learnCustomEntities(patterns);
 const apiMeteo = async (city) => {
   let coord = coordinates(city);
   let meteoApiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${coord.lat}&longitude=${coord.lng}&hourly=temperature_2m,weathercode`
-  return await meteo(meteoApiUrl).then((result) => {
-    return result
-  });
+  return await meteo(meteoApiUrl).then((result) => result);
 }
 
 
