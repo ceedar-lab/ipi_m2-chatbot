@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
       next: (res) => this.response = res,
       error: (err) => this.response = err
     })
-    this.text.nativeElement.value = '';
+    // this.text.nativeElement.value = '';
   }
 
   private processText(text: string): string {

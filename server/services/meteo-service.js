@@ -20,7 +20,7 @@ Object.defineProperty(String.prototype, 'capitalize', {
 
 Object.defineProperty(String.prototype, 'toLocalDate', {
   value: function() {
-    try {
+    try {     
       return moment(`${this}:00.000Z`).utc().format('DD-MM-YYYY à HH:mm')
     } catch {
       return this
@@ -82,7 +82,8 @@ const response = (message) => {
           const date = dateToFindMeteoList.length > 0 ? dateToFindMeteoList[0] : dateReferences.TODAY;
           const hour = hourToFindMeteoList.length > 0 ? localHour(hourToFindMeteoList[0]) : `${new Date().getHours()}:00`
           await apiMeteo(city).then(result => {
-            const meteoDate = meteoOf(date, hour)
+            let meteoDate = meteoOf(date, hour)
+            if (meteoDate.length === 15) meteoDate = meteoDate.split('T')[0] + 'T0' + meteoDate.split('T')[1]
             resolve(`Méteo de ${city.capitalize()} le ${meteoDate.toLocalDate()} : ${temperatureAndWeatherCondition(meteoDate, JSON.parse(result))}`)
           })
         } else {
