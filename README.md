@@ -90,15 +90,15 @@ parameters :
 
 ### 2 - Schéma d'architecture 
 
-![Architecture ChatBot](architecture.jpg "Architecture ChatBot")
+![Architecture ChatBot](./resources/architecture.jpg "Architecture ChatBot")
 
 ## Proof Of Concept
 
 ### 1 - Demande météo sans nom de ville
-![POC](poc3.jpg "POC")
+![POC](./resources/poc3.jpg "POC")
 
 ### 2 - Météo du jour au moment de la demande
-![POC](poc.jpg "POC")
+![POC](./resources/poc.jpg "POC")
 
 ### 3 - Météo du lendemain à 18h
-![POC](poc2.jpg "POC")
+![POC](./resources/poc2.jpg "POC")
