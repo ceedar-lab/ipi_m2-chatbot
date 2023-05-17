@@ -73,6 +73,12 @@ POST http://localhost:3000/
   "message": "Quel temps fera-t-il à Lyon demain ?"
 }
 ```
+```
+RESPONSE 200
+{
+  "response": "Méteo de Lyon le 17-05-2023 à 09:00 : Température : 13.4°C..."
+}
+```
 - Depuis NodeJS vers API : 
 ```
 GET https://api.open-meteo.com/v1/forecast

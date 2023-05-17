@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
   send() {
     this.lastQuestion = this.text.nativeElement.value;
     this.http.send(new Object({ message: this.processText(this.text.nativeElement.value) }) as Message).subscribe({
-      next: (res) => this.response = res,
+      next: (res) => this.response = res.response,
       error: (err) => this.response = err
     })
     // this.text.nativeElement.value = '';

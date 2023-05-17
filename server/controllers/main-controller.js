@@ -8,7 +8,7 @@ const response = require('../services/meteo-service.js')
 app.post('', async (req, res) => {
   let message = req.body.message
   
-  await response(message).then(result => res.send(result))
+  await response(message).then(result => res.send(new Object({ response: result })))
 })
 
 module.exports = app
